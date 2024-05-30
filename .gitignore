@@ -1,2 +1,5 @@
 /env
 *.pyc
+*/backend/api/migrations
+.sqlite3
+*/__pycache__
