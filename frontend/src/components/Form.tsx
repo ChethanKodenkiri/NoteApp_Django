@@ -3,6 +3,7 @@ import api from "../api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import { useNavigate } from "react-router-dom";
 import LoadingIndicator from "./LoadingIndicator";
+import '../style/Form.css'
 
 function Form({ route, method }: { route: any; method: string }) {
     const naviagte =useNavigate()
@@ -15,7 +16,8 @@ function Form({ route, method }: { route: any; method: string }) {
     setLoading(true);
     try {
       const res = await api.post(route, { username, password });
-      if (method === "login") {
+      console.log(res)
+      if (method == "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
         naviagte('/')
@@ -31,7 +33,7 @@ function Form({ route, method }: { route: any; method: string }) {
 
   return (
     <>
-      <form action="submit" onSubmit={submitChange}>
+      <form onSubmit={submitChange} className="form-container">
         <h1>{name}</h1>
         <input
           type="text"
@@ -40,6 +42,7 @@ function Form({ route, method }: { route: any; method: string }) {
             setUsername(e.target.value);
           }}
           placeholder="User Name"
+          className="form-input"
         />
         <input
           type="password"
@@ -48,9 +51,10 @@ function Form({ route, method }: { route: any; method: string }) {
             setPassword(e.target.value);
           }}
           placeholder="Password"
+          className="form-input"
         />
         {loading && <LoadingIndicator />}
-        <button type="submit">{name}</button>
+        <button type="submit" className="form-button">{name}</button>
       </form>
     </>
   );

@@ -1,4 +1,6 @@
 import React from 'react'
+import '../style/LoadingIndicator.css'
+
 
 function LoadingIndicator() {
   return (

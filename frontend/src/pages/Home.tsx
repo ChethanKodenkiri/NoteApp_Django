@@ -60,7 +60,11 @@ function Home() {
         <Note note={note} onDelete={deleteNote} key={note.id} />;
       })}
       <form action="submit" onSubmit={createNote}>
+        <label htmlFor="title">Title:</label>
+        <br />
         <input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <label htmlFor="content">Content:</label>
+        <br />
         <textarea
           value={content}
           onChange={(e) => {
