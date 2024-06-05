@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Note from "../components/Note";
 import api from "../api";
 
-function home() {
+function Home() {
   const [notes, setNotes] = useState<any>("");
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -73,4 +73,4 @@ function home() {
   );
 }
 
-export default home;
+export default Home;

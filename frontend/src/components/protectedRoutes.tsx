@@ -5,7 +5,7 @@ import { ACCESS_TOKEN,REFRESH_TOKEN } from '../constants'
 import api from '../api'
 import { Navigate } from 'react-router-dom';
 
-function protectedRoutes({children}:any) {
+function ProtectedRoutes({children}:any) {
    const [isAutherized, setAutherized] = useState<null|Boolean>(null);
 
    useEffect(()=>{
@@ -46,4 +46,4 @@ function protectedRoutes({children}:any) {
    return isAutherized?children:<Navigate to={'./login'}/>
 }
 
-export default protectedRoutes
+export default ProtectedRoutes

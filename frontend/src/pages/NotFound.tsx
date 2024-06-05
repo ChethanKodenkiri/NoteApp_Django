@@ -1,6 +1,6 @@
 import React from 'react'
 
-function notFound() {
+function NotFound() {
   return (
     <div>
         <h1>404</h1>
@@ -9,4 +9,4 @@ function notFound() {
   )
 }
 
-export default notFound
+export default NotFound
