@@ -3,9 +3,10 @@ import { useEffect,useState } from 'react'
 import { jwtDecode } from 'jwt-decode';
 import { ACCESS_TOKEN,REFRESH_TOKEN } from '../constants'
 import api from '../api'
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function ProtectedRoutes({children}:any) {
+    const naviagte = useNavigate()
    const [isAutherized, setAutherized] = useState<null|Boolean>(null);
 
    useEffect(()=>{
@@ -28,6 +29,7 @@ function ProtectedRoutes({children}:any) {
 
    const auth=async function(){
     const token = localStorage.getItem(ACCESS_TOKEN);
+    console.log("Local Access token ",token)
     if(!token){
         setAutherized(false)
         return;
@@ -43,7 +45,7 @@ function ProtectedRoutes({children}:any) {
     }
    }
    if (isAutherized == null){<div>Loading...</div>}
-   return isAutherized?children:<Navigate to={'./login'}/>
+   return isAutherized?children:naviagte('/login')
 }
 
 export default ProtectedRoutes

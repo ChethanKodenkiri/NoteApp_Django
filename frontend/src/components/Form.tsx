@@ -12,11 +12,12 @@ function Form({ route, method }: { route: any; method: string }) {
   const [loading, setLoading] = useState<Boolean>(false);
 
   const name = method === "login" ? "Login" : "Register";
-  const submitChange = async () => {
+
+  const submitChange = async (e:any) => {
+    e.preventDefault();
     setLoading(true);
     try {
       const res = await api.post(route, { username, password });
-      console.log(res)
       if (method == "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
@@ -27,6 +28,7 @@ function Form({ route, method }: { route: any; method: string }) {
 
     } catch (error) {
         alert(error)
+        console.log("It an error")
         setLoading(false)
     }
   };

@@ -26,8 +26,8 @@ function App() {
           <Home/>
         </ProtectedRoutes>
       } />
-      <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<ClearBeforeRegister/>}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/logout" element={<Logout/>}/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>

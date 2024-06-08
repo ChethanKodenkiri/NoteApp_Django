@@ -5,7 +5,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=['id','username','password']
-        extra_kwarg={'password':{'write_only':True}}
+        extra_kwargs={'password':{'write_only':True}}
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
@@ -15,4 +15,4 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model=Note
         fields=['id','title','content','created_at','author']
-        extra_kwarg={'author':{'read_only':True}}
+        extra_kwargs={'author':{'read_only':True}}
