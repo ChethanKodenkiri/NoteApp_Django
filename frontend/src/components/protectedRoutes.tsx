@@ -1,9 +1,8 @@
-import React from 'react'
 import { useEffect,useState } from 'react'
 import { jwtDecode } from 'jwt-decode';
 import { ACCESS_TOKEN,REFRESH_TOKEN } from '../constants'
 import api from '../api'
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 function ProtectedRoutes({children}:any) {
     const naviagte = useNavigate()
