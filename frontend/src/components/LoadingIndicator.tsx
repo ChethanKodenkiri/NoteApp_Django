@@ -1,7 +1,4 @@
-import React from 'react'
 import '../style/LoadingIndicator.css'
-
-
 function LoadingIndicator() {
   return (
     <div className='loading-container'>
@@ -11,3 +8,7 @@ function LoadingIndicator() {
 }
 
 export default LoadingIndicator
+
+
+
+
