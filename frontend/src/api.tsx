@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { ACCESS_TOKEN } from './constants';
 
+const apiUrl="/choreo-apis/djangoreactnoteapp/backend/v1"
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL // Corrected syntax and casing
+    baseURL: import.meta.env.VITE_API_URL? import.meta.env.VITE_API_URL:apiUrl// Corrected syntax and casing
 });
 
 api.interceptors.request.use(
